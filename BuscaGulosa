@@ -1,0 +1,11 @@
+def buscaGulosa(nos,h):
+    no = argmin (nos, h)
+    sl = [resultado(no, a) for a in acoes(no)]
+    if any (atingiuObj(s) for s in sl):
+        return filter (atingiuObj, sl)[0]
+    nos = nos.remove(no) + sl
+
+    if empty (nos):
+        return Falha
+
+    return buscaGulosa(nos, h)
